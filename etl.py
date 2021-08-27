@@ -6,6 +6,10 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
+    """
+    Processes the song files
+    Adds information to the songs and artists tables
+    """
     # open song file
     df = pd.read_json(filepath, lines=True)
 
@@ -19,6 +23,10 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    """
+    Processes the songplays files
+    Adds information to the users, songplays and time tables
+    """
     # open log file
     df = pd.read_json(filepath, lines=True)
 
@@ -38,7 +46,7 @@ def process_log_file(cur, filepath):
         cur.execute(time_table_insert, list(row))
 
     # load user table
-    user_df = user_df = df[['userId', 'firstName', 'lastName', 'gender', 'level']]
+    user_df = df[['userId', 'firstName', 'lastName', 'gender', 'level']]
 
     # insert user records
     for i, row in user_df.iterrows():
@@ -62,6 +70,14 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+    """
+    Processes all the data files in a given directory according to a specific function
+
+    cur -> connection cursor
+    conn -> database connection
+    filepath -> base path of the files
+    func -> method used for processing each file
+    """
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
@@ -81,6 +97,12 @@ def process_data(cur, conn, filepath, func):
 
 
 def main():
+    """
+    - Connects to the database
+    - Reads and processes all the files in the data/song_data folder
+    - Reads and processes all the files in the data/log_data folder
+    """
+
     conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=root password=pgpassword123")
     cur = conn.cursor()
 
