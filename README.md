@@ -37,4 +37,10 @@ docker run --network host project-1
 
 Those commands will setup the environment for you to access the data. Now, if you want to explore the database, access the metabase server on your localhost at http://localhost:3000
 
+To log in, use the credentials:
+```
+email: udacity_student@example.com
+password: Yd72!2da5oAHsJY0ICIJtrCf
+```
+
 If you followed the steps above, you can find the songplay_metrics dashboard [here](http://localhost:3000/dashboard/1-songplay-metrics) and the user_base dashboard [here](http://localhost:3000/dashboard/2-user-base)
