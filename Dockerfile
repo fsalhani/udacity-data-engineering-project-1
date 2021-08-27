@@ -2,7 +2,9 @@ FROM python
 
 ADD requirements.txt .
 
-RUN pip3 install -r requirements.txt --no-binary pandas
+RUN pip install --upgrade pip
+
+RUN pip install -r requirements.txt
 
 ADD data ./data
 ADD create_tables.py .
