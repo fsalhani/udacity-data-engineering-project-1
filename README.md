@@ -11,7 +11,7 @@
 * [Dockerfile](Dockerfile) - Dockerfile for a docker image that has all the requirements to run the etl process
 * [docker-compose.yml](docker-compose.yml) - docker-compose file that creates two containers: one with a postgreSQL database to store the sparkify data and another with a metabase server to allow for data exploration
 * [metabase](metabase) - set of files required to create the metabase container correctly and restore a backup of its database after the creation of a set of dashboards
-* [dashboards](dashboards) - examples of analysis that could be performed in the data provided
+* [dashboards](dashboards) - examples of analysis that could be performed in the data provided with dashboards and queries
 
 ## Setup
 
