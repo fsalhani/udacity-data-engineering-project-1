@@ -36,7 +36,7 @@ song_table_create = ("""
 CREATE TABLE songs (
   song_id        VARCHAR PRIMARY KEY,
   title          VARCHAR,
-  artist_id      VARCHAR,
+  artist_id      VARCHAR NOT NULL,
   year           INT,
   duration       FLOAT
 );
